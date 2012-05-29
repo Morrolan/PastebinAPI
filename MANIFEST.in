@@ -1,0 +1,4 @@
+include README.txt
+include pastebin.py
+include setup.py
+recursive-include doc *.html *.txt *.png *.css *.js

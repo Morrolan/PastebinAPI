@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pastebin.PastebinAPI</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pastebin-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pastebin-module.html">Module&nbsp;pastebin</a> ::
+        Class&nbsp;PastebinAPI
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pastebin.PastebinAPI-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class PastebinAPI</h1><p class="nomargin-top"><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">PastebinAPI</strong>
+</pre>
+
+<hr />
+<p>Pastebin API interaction object.</p>
+  <p>Public functions:</p>
+  <p>paste -- Pastes a user-specified file or string using the new API-key 
+  POST method.</p>
+  <p>legacy_paste -- Pastes a user-specified file or string using the old 
+  anonymous POST method.</p>
+  <p>generate_user_key -- Generates a session-key that is required for 
+  other functions.</p>
+  <p>pastes_by_user -- Returns all public pastes submitted by the specified
+  login credentials.</p>
+  <p>trending -- Returns the top trending paste.</p>
+  <p>user_details -- Returns details about the user for the specified API 
+  user key.</p>
+  <p>delete_paste -- Adds two numbers together and returns the result.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#delete_paste" class="summary-sig-name">delete_paste</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_dev_key</span>,
+        <span class="summary-sig-arg">api_user_key</span>,
+        <span class="summary-sig-arg">api_paste_key</span>)</span><br />
+      Delete the paste specified by the api_paste_key.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.delete_paste">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#user_details" class="summary-sig-name">user_details</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_dev_key</span>,
+        <span class="summary-sig-arg">api_user_key</span>)</span><br />
+      Return user details of the user specified by the api_user_key.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.user_details">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#trending" class="summary-sig-name">trending</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_dev_key</span>)</span><br />
+      Returns the top trending paste details.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.trending">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#pastes_by_user" class="summary-sig-name">pastes_by_user</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_dev_key</span>,
+        <span class="summary-sig-arg">api_user_key</span>,
+        <span class="summary-sig-arg">results_limit</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns all pastes for the provided api_user_key.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.pastes_by_user">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#generate_user_key" class="summary-sig-name">generate_user_key</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_dev_key</span>,
+        <span class="summary-sig-arg">username</span>,
+        <span class="summary-sig-arg">password</span>)</span><br />
+      Generate a user session key - needed for other functions.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.generate_user_key">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#paste" class="summary-sig-name">paste</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_dev_key</span>,
+        <span class="summary-sig-arg">api_paste_code</span>,
+        <span class="summary-sig-arg">api_user_key</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paste_name</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paste_format</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paste_private</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paste_expire_date</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Submit a code snippet to Pastebin using the new API.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.paste">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pastebin.PastebinAPI-class.html#legacy_paste" class="summary-sig-name">legacy_paste</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">paste_code</span>,
+        <span class="summary-sig-arg">paste_name</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paste_private</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paste_expire_date</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paste_format</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Unofficial python interface to the Pastebin legacy API.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.legacy_paste">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_bad_request"></a><span class="summary-name">_bad_request</span> = <code title="'Bad API request'"><code class="variable-quote">'</code><code class="variable-string">Bad API request</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_base_domain"></a><span class="summary-name">_base_domain</span> = <code title="'pastebin.com'"><code class="variable-quote">'</code><code class="variable-string">pastebin.com</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_prefix_url"></a><span class="summary-name">_prefix_url</span> = <code title="'http://pastebin.com/'"><code class="variable-quote">'</code><code class="variable-string">http://pastebin.com/</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_subdomain_url"></a><span class="summary-name">_subdomain_url</span> = <code title="'http://%s.pastebin.com/'"><code class="variable-quote">'</code><code class="variable-string">http://%s.pastebin.com/</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_legacy_api_url"></a><span class="summary-name">_legacy_api_url</span> = <code title="'http://pastebin.com/api_public.php'"><code class="variable-quote">'</code><code class="variable-string">http://pastebin.com/api_public.php</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_api_url"></a><span class="summary-name">_api_url</span> = <code title="'http://pastebin.com/api/api_post.php'"><code class="variable-quote">'</code><code class="variable-string">http://pastebin.com/api/api_post.php</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_api_login_url"></a><span class="summary-name">_api_login_url</span> = <code title="'http://pastebin.com/api/api_login.php'"><code class="variable-quote">'</code><code class="variable-string">http://pastebin.com/api/api_login.php</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="paste_expire_date"></a><span class="summary-name">paste_expire_date</span> = <code title="('N', '10M', '1H', '1D', '1M')"><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">N</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">10M</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">1H</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">1D</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">1M</code><code class="variable-quote">'</code><code class="variable-group">)</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="paste_private"></a><span class="summary-name">paste_private</span> = <code title="('public', 'unlisted', 'private')"><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">public</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">unlisted</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">private</code><code class="variable-quote">'</code><code class="variable-group">)</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pastebin.PastebinAPI-class.html#paste_format" class="summary-name">paste_format</a> = <code title="('4cs',
+ '6502acme',
+ '6502kickass',
+ '6502tasm',
+ 'abap',
+ 'actionscript',
+ 'actionscript3',
+ 'ada',
+..."><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">4cs</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">6502acme</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">6502kickass</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">6502tasm</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="delete_paste"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">delete_paste</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">api_dev_key</span>,
+        <span class="sig-arg">api_user_key</span>,
+        <span class="sig-arg">api_paste_key</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.delete_paste">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Delete the paste specified by the api_paste_key.</p>
+  <p>Usage Example:</p>
+<pre class="literalblock">
+   &gt;&gt;&gt; from pastebin import PastebinAPI
+   &gt;&gt;&gt; x = PastebinAPI()
+   &gt;&gt;&gt; paste_to_delete = x.delete_paste('453a994e0e2f1efae07f8759e59e075b',
+   ...                                 'c57a18e6c0ae228cd4bd16fe36da381a',
+   ...                                 'WkgcTFtv')
+   &gt;&gt;&gt; print paste_to_delete
+   Paste Removed     
+</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>api_dev_key</code></strong> (string) - The API Developer Key of a registered <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          account.</li>
+        <li><strong class="pname"><code>api_user_key</code></strong> (string) - The API User Key of a <a href="http://pastebin.com" 
+          target="_top">http://pastebin.com</a> registered user.</li>
+        <li><strong class="pname"><code>api_paste_key</code></strong> (string) - The Paste Key of the paste to be deleted (string after final / in
+          <a href="http://pastebin.com" 
+          target="_top">http://pastebin.com</a> URL).</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>A successful deletion returns 'Paste Removed'.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="user_details"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">user_details</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">api_dev_key</span>,
+        <span class="sig-arg">api_user_key</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.user_details">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return user details of the user specified by the api_user_key.</p>
+  <p>Usage Example:</p>
+<pre class="literalblock">
+   &gt;&gt;&gt; from pastebin import PastebinAPI
+   &gt;&gt;&gt; x = PastebinAPI()
+   &gt;&gt;&gt; details = x.user_details('453a994e0e2f1efae07f8759e59e075b',
+   ...                         'c57a18e6c0ae228cd4bd16fe36da381a')
+   &gt;&gt;&gt; print details
+   &lt;user&gt;
+   &lt;user_name&gt;MonkeyPuzzle&lt;/user_name&gt;
+   &lt;user_format_short&gt;python&lt;/user_format_short&gt;
+   &lt;user_expiration&gt;N&lt;/user_expiration&gt;
+   &lt;user_avatar_url&gt;http://pastebin.com/i/guest.gif&lt;/user_avatar_url&gt;
+   &lt;user_private&gt;0&lt;/user_private&gt;
+   &lt;user_website&gt;&lt;/user_website&gt;
+   &lt;user_email&gt;user@email.com&lt;/user_email&gt;
+   &lt;user_location&gt;&lt;/user_location&gt;
+   &lt;user_account_type&gt;0&lt;/user_account_type&gt;
+   &lt;/user&gt;
+</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>api_dev_key</code></strong> (string) - The API Developer Key of a registered <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          account.</li>
+        <li><strong class="pname"><code>api_user_key</code></strong> (string) - The API User Key of a <a href="http://pastebin.com" 
+          target="_top">http://pastebin.com</a> registered user.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Returns an XML string containing user information.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="trending"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">trending</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">api_dev_key</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.trending">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the top trending paste details.</p>
+  <p>Usage Example:</p>
+<pre class="literalblock">
+   &gt;&gt;&gt; from pastebin import PastebinAPI
+   &gt;&gt;&gt; x = PastebinAPI()
+   &gt;&gt;&gt; details = x.trending('453a994e0e2f1efae07f8759e59e075b')
+   &gt;&gt;&gt; print details
+   &lt;paste&gt;
+   &lt;paste_key&gt;jjMRFDH6&lt;/paste_key&gt;
+   &lt;paste_date&gt;1333230838&lt;/paste_date&gt;
+   &lt;paste_title&gt;&lt;/paste_title&gt;
+   &lt;paste_size&gt;6416&lt;/paste_size&gt;
+   &lt;paste_expire_date&gt;0&lt;/paste_expire_date&gt;
+   &lt;paste_private&gt;0&lt;/paste_private&gt;
+   &lt;paste_format_long&gt;None&lt;/paste_format_long&gt;
+   &lt;paste_format_short&gt;text&lt;/paste_format_short&gt;
+   &lt;paste_url&gt;http://pastebin.com/jjMRFDH6&lt;/paste_url&gt;
+   &lt;paste_hits&gt;6384&lt;/paste_hits&gt;
+   &lt;/paste&gt;
+</pre>
+  <p>Note: Returns multiple trending pastes, not just 1.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>api_dev_key</code></strong> (string) - The API Developer Key of a registered <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          account.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Returns the string (XML formatted) containing the top trending 
+          pastes.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="pastes_by_user"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pastes_by_user</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">api_dev_key</span>,
+        <span class="sig-arg">api_user_key</span>,
+        <span class="sig-arg">results_limit</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.pastes_by_user">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns all pastes for the provided api_user_key.</p>
+  <p>Usage Example:</p>
+<pre class="literalblock">
+   &gt;&gt;&gt; from pastebin import PastebinAPI
+   &gt;&gt;&gt; x = PastebinAPI()
+   &gt;&gt;&gt; details = x.user_details('453a994e0e2f1efae07f8759e59e075b',
+   ...                         'c57a18e6c0ae228cd4bd16fe36da381a',
+   ...                         100)
+   &gt;&gt;&gt; print details
+   &lt;paste&gt;
+   &lt;paste_key&gt;DLiSspYT&lt;/paste_key&gt;
+   &lt;paste_date&gt;1332714730&lt;/paste_date&gt;
+   &lt;paste_title&gt;Pastebin.py - Python 3.2 Pastebin.com API&lt;/paste_title&gt;
+   &lt;paste_size&gt;25300&lt;/paste_size&gt;
+   &lt;paste_expire_date&gt;0&lt;/paste_expire_date&gt;
+   &lt;paste_private&gt;0&lt;/paste_private&gt;
+   &lt;paste_format_long&gt;Python&lt;/paste_format_long&gt;
+   &lt;paste_format_short&gt;python&lt;/paste_format_short&gt;
+   &lt;paste_url&gt;http://pastebin.com/DLiSspYT&lt;/paste_url&gt;
+   &lt;paste_hits&gt;70&lt;/paste_hits&gt;
+   &lt;/paste&gt;
+</pre>
+  <p>Note: Returns multiple pastes, not just 1.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>api_dev_key</code></strong> (string) - The API Developer Key of a registered <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          account.</li>
+        <li><strong class="pname"><code>api_user_key</code></strong> (string) - The API User Key of a <a href="http://pastebin.com" 
+          target="_top">http://pastebin.com</a> registered user.</li>
+        <li><strong class="pname"><code>results_limit</code></strong> (number) - The number of pastes to return between 1 - 1000.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Returns an XML string containing number of specified pastes by 
+          user.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="generate_user_key"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generate_user_key</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">api_dev_key</span>,
+        <span class="sig-arg">username</span>,
+        <span class="sig-arg">password</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.generate_user_key">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Generate a user session key - needed for other functions.</p>
+  <p>Usage Example:</p>
+<pre class="literalblock">
+   &gt;&gt;&gt; from pastebin import PastebinAPI
+   &gt;&gt;&gt; x = PastebinAPI()
+   &gt;&gt;&gt; my_key = x.generate_user_key('453a994e0e2f1efae07f8759e59e075b',
+   ...                             'MonkeyPuzzle',
+   ...                             '12345678')
+   &gt;&gt;&gt; print my_key
+   c57a18e6c0ae228cd4bd16fe36da381a
+</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>api_dev_key</code></strong> (string) - The API Developer Key of a registered <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          account.</li>
+        <li><strong class="pname"><code>username</code></strong> (string) - The username of a registered <a href="http://pastebin.com" 
+          target="_top">http://pastebin.com</a> account.</li>
+        <li><strong class="pname"><code>password</code></strong> (string) - The password of a registered <a href="http://pastebin.com" 
+          target="_top">http://pastebin.com</a> account.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Session key (api_user_key) to allow authenticated interaction to 
+          the API.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="paste"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">paste</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">api_dev_key</span>,
+        <span class="sig-arg">api_paste_code</span>,
+        <span class="sig-arg">api_user_key</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paste_name</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paste_format</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paste_private</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paste_expire_date</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.paste">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Submit a code snippet to Pastebin using the new API.</p>
+  <p>Usage Example:</p>
+<pre class="literalblock">
+   &gt;&gt;&gt; from pastebin import PastebinAPI
+   &gt;&gt;&gt; x = PastebinAPI()
+   &gt;&gt;&gt; url = x.paste('453a994e0e2f1efae07f8759e59e075b' ,
+   ...               'Snippet of code to paste goes here',
+   ...               paste_name = 'title of paste',
+   ...               api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a', 
+   ...               paste_format = 'python',
+   ...               paste_private = 'unlisted',
+   ...               paste_expire_date = '10M')
+   &gt;&gt;&gt; print url
+   http://pastebin.com/tawPUgqY
+</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>api_dev_key</code></strong> (string) - The API Developer Key of a registered <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          account.</li>
+        <li><strong class="pname"><code>api_paste_code</code></strong> (string) - The file or string to paste to body of the <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          paste.</li>
+        <li><strong class="pname"><code>api_user_key</code></strong> (string) - The API User Key of a <a href="http://pastebin.com" 
+          target="_top">http://pastebin.com</a> registered user. If none 
+          specified, paste is made as a guest.</li>
+        <li><strong class="pname"><code>paste_name</code></strong> (string) - (Optional) Title of the paste. Default is to paste anonymously.</li>
+        <li><strong class="pname"><code>paste_format</code></strong> (string) - (Optional) Programming language of the code being pasted. This 
+          enables syntax highlighting when reading the code in <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a>.
+          Default is no syntax highlighting (text is just text and not 
+          source code).</li>
+        <li><strong class="pname"><code>paste_private</code></strong> (string) - (Optional) <code>'public'</code> if the paste is public (visible 
+          by everyone), <code>'unlisted'</code> if it's public but not 
+          searchable. <code>'private'</code> if the paste is private and 
+          not searchable or indexed. The Pastebin FAQ (<a 
+          href="http://pastebin.com/faq" 
+          target="_top">http://pastebin.com/faq</a>) claims private pastes 
+          are not indexed by search engines (aka Google).</li>
+        <li><strong class="pname"><code>paste_expire_date</code></strong> (str) - (Optional) Expiration date for the paste. Once past this date the
+          paste is deleted automatically. Valid values are found in the <a 
+          href="pastebin.PastebinAPI-class.html#paste_expire_date" 
+          class="link">PastebinAPI.paste_expire_date</a> class member. If 
+          not provided, the paste never expires.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Returns the URL to the newly created paste.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="legacy_paste"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">legacy_paste</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">paste_code</span>,
+        <span class="sig-arg">paste_name</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paste_private</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paste_expire_date</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paste_format</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pastebin-pysrc.html#PastebinAPI.legacy_paste">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Unofficial python interface to the Pastebin legacy API.</p>
+  <p>Unlike the official API, this one doesn't require an API key, so it's 
+  virtually anonymous.</p>
+  <p>Usage Example:</p>
+<pre class="literalblock">
+   &gt;&gt;&gt; from pastebin import PastebinAPI
+   &gt;&gt;&gt; x = PastebinAPI()
+   &gt;&gt;&gt; url = x.legacy_paste('Snippet of code to paste goes here',
+   ...                     paste_name = 'title of paste',
+   ...                     paste_private = 'unlisted',
+   ...                     paste_expire_date = '10M',
+   ...                     paste_format = 'python')
+   &gt;&gt;&gt; print url
+   http://pastebin.com/tawPUgqY
+</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>paste_code</code></strong> (string) - The file or string to paste to body of the <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a> 
+          paste.</li>
+        <li><strong class="pname"><code>paste_name</code></strong> (string) - (Optional) Title of the paste. Default is to paste with no title.</li>
+        <li><strong class="pname"><code>paste_private</code></strong> (string) - (Optional) <code>'public'</code> if the paste is public (visible 
+          by everyone), <code>'unlisted'</code> if it's public but not 
+          searchable. <code>'private'</code> if the paste is private and 
+          not searchable or indexed. The Pastebin FAQ (<a 
+          href="http://pastebin.com/faq" 
+          target="_top">http://pastebin.com/faq</a>) claims private pastes 
+          are not indexed by search engines (aka Google).</li>
+        <li><strong class="pname"><code>paste_expire_date</code></strong> (string) - (Optional) Expiration date for the paste. Once past this date the
+          paste is deleted automatically. Valid values are found in the <a 
+          href="pastebin.PastebinAPI-class.html#paste_expire_date" 
+          class="link">PastebinAPI.paste_expire_date</a> class member. If 
+          not provided, the paste never expires.</li>
+        <li><strong class="pname"><code>paste_format</code></strong> (string) - (Optional) Programming language of the code being pasted. This 
+          enables syntax highlighting when reading the code in <a 
+          href="http://pastebin.com" target="_top">http://pastebin.com</a>.
+          Default is no syntax highlighting (text is just text and not 
+          source code).</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>Returns the URL to the newly created paste.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="paste_format"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">paste_format</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">4cs</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">6502acme</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">6502kickass</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">6502tasm</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">abap</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">actionscript</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">actionscript3</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">ada</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pastebin-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Apr 10 17:12:56 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
