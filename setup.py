@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 #############################################################################
-#    Pastebin.py - Python 3.2 Pastebin API.
+#    Pastebin.py - Python Pastebin API.
 #    Copyright (C) 2012  Ian Havelock
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -25,25 +25,21 @@
 
 #############################################################################
 
-from distutils.core import setup
+from setuptools import setup
+
+long_desc = open('long_desc.txt').read()
 
 setup(name = 'Pastebin',
-      version = '1.0.2',
+      version = '1.0.3',
       py_modules = ['pastebin'],
       author = 'Morrolan',
       author_email = 'morrolan@me.com',
       url = 'http://www.morrolan.com',
       license = 'GNU General Public License (GPL)',
       description = 'Python Pastebin API interaction object.',
-      long_description = """Paste to pastebin.com either with login credentials, or anonymously from code.
-      
-      Currently available as source only, but once unzipped, at a commandline go to the appropriate directory where you unzipped, and simply type:
-      
-      python setup.py install
-      
-      """,
+      long_description = long_desc,
       platforms = ['Windows','Unix','OS X'],
-      download_url = "http://www.morrolan.com/python/Pastebin-1.0.2.tar.gz",
+      download_url = "http://pypi.python.org/pypi/Pastebin/",
       keywords = ["pastebin", "paste", "xml", "pastebin API"],
       classifiers = [
         "Programming Language :: Python",
@@ -57,5 +53,6 @@ setup(name = 'Pastebin',
         "Topic :: Education",
         "Topic :: Software Development :: Libraries :: Python Modules",
          ],
+      install_requires=['setuptools'],
       
       )
