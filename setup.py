@@ -27,7 +27,7 @@
 
 from setuptools import setup
 
-long_desc = open('long_desc.txt').read()
+long_desc = open('readme.rst').read()
 
 setup(name = 'Pastebin',
       version = '1.0.3',
