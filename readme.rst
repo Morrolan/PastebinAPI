@@ -27,12 +27,21 @@ It allows you to do everything the API allows, which is:
 Installation
 ------------
 
-At the moment only a source distribution is available, so to install do the following at the commandline: 
+If you have downloaded the source distribution, to install do the following at the commandline: 
 
 ::
    
    $ python setup.py install
 
+
+If you can use and install Python Egg's, you can do:
+
+::
+
+   $ easy_install Pastebin
+
+
+And it will download the latest version from the Python Package Index.
 
 
 
