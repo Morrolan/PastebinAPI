@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 include readme.markdown
 include pastebin.py
 include setup.py
+=======
+include pastebin.py
+include setup.py
+include readme.rst
+>>>>>>> Tidy up
 recursive-include doc *.html *.txt *.png *.css *.js

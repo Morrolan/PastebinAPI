@@ -29,7 +29,7 @@ from setuptools import setup
 
 long_desc = open('readme.rst').read()
 
-setup(name = 'Pastebin',
+setup(name = 'pastebin',
       version = '1.0.3',
       py_modules = ['pastebin'],
       author = 'Morrolan',
