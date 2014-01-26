@@ -30,10 +30,10 @@ from setuptools import setup
 long_desc = open('readme.rst').read()
 
 setup(name = 'Pastebin',
-      version = '1.1.0',
+      version = '1.1.1',
       py_modules = ['pastebin'],
-      author = 'Morrolan',
-      author_email = 'morrolan@me.com',
+      author = 'Ian Havelock',
+      author_email = 'ian@morrolan.com',
       url = 'http://www.morrolan.com',
       license = 'GNU General Public License (GPL)',
       description = 'Python Pastebin API interaction object.',
