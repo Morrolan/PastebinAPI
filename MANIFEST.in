@@ -2,4 +2,5 @@ include pastebin.py
 include setup.py
 include readme.rst
 include readme.markdown
+include LICENSE.txt
 recursive-include doc *.html *.txt *.png *.css *.js
