@@ -346,7 +346,7 @@ class PastebinAPI(object):
         argv['api_option'] = str('delete')
 
         # lets try to read the URL that we've just built.
-        request = urllib.urlopen(self._api_url, urllib.urlencode(argv))
+        request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
         response = request_string.read()
 
         return response
