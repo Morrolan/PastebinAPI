@@ -26,8 +26,8 @@
 #############################################################################
 
 
-__ALL__ = ['delete_paste', 'user_details', 'trending', 'pastes_by_user', 
-           'generate_user_key', 'legacy_paste', 'paste', 'Pastebin', 
+__ALL__ = ['delete_paste', 'user_details', 'trending', 'pastes_by_user',
+           'generate_user_key', 'legacy_paste', 'paste', 'Pastebin',
            'PastebinError']
 
 import sys
@@ -36,31 +36,31 @@ import urllib
 class PastebinError(RuntimeError):
     """Pastebin API error.
 
-    The error message returned by the web application is stored as the Python 
+    The error message returned by the web application is stored as the Python
     exception message."""
 
 class PastebinAPI(object):
     """Pastebin API interaction object.
-  
+
     Public functions:
-    
-    paste -- Pastes a user-specified file or string using the new API-key POST 
+
+    paste -- Pastes a user-specified file or string using the new API-key POST
     method.
 
-    legacy_paste -- Pastes a user-specified file or string using the old 
+    legacy_paste -- Pastes a user-specified file or string using the old
     anonymous POST method.
-    
-    generate_user_key -- Generates a session-key that is required for other 
+
+    generate_user_key -- Generates a session-key that is required for other
     functions.
-    
+
     pastes_by_user -- Returns all public pastes submitted by the specified login
     credentials.
-    
+
     trending -- Returns the top trending paste.
-    
-    user_details -- Returns details about the user for the specified API user 
+
+    user_details -- Returns details about the user for the specified API user
     key.
-    
+
     delete_paste -- Adds two numbers together and returns the result."""
 
     # String to determine bad API requests
@@ -300,9 +300,9 @@ class PastebinAPI(object):
 
 
     def delete_paste(self, api_dev_key, api_user_key, api_paste_key):
-        """Delete the paste specified by the api_paste_key.          
-          
-          
+        """Delete the paste specified by the api_paste_key.
+
+
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
@@ -310,15 +310,15 @@ class PastebinAPI(object):
             ...                                 'c57a18e6c0ae228cd4bd16fe36da381a',
             ...                                 'WkgcTFtv')
             >>> print paste_to_delete
-            Paste Removed     
-            
+            Paste Removed
+
 
         @type   api_dev_key: string
         @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
-        
+
         @type   api_user_key: string
         @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
-        
+
         @type   api_paste_key: string
         @param  api_paste_key: The Paste Key of the paste to be deleted (string after final / in U{http://pastebin.com} URL).
 
@@ -336,10 +336,9 @@ class PastebinAPI(object):
         # Key of the paste to be deleted.
         if api_paste_key is not None:
             argv['api_paste_key'] = str(api_paste_key)
-          
+
         # Valid API option - 'user_details' in this instance
         argv['api_option'] = str('delete')
-
 
         # lets try to read the URL that we've just built.
         request = urllib.urlopen(self._api_url, urllib.urlencode(argv))
@@ -350,8 +349,8 @@ class PastebinAPI(object):
 
     def user_details(self, api_dev_key, api_user_key):
         """Return user details of the user specified by the api_user_key.
-        
-        
+
+
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
@@ -369,22 +368,22 @@ class PastebinAPI(object):
             <user_location></user_location>
             <user_account_type>0</user_account_type>
             </user>
-        
-        
+
+
         @type   api_dev_key: string
         @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
-        
+
         @type   api_user_key: string
         @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
 
         @rtype: string
         @returns: Returns an XML string containing user information.
         """
-        
+
         # Valid api developer key
         argv = {'api_dev_key' : str(api_dev_key) }
 
-        # Requires pre-registered account to generate an api_user_key 
+        # Requires pre-registered account to generate an api_user_key
         # (see generate_user_key)
         if api_user_key is not None:
             argv['api_user_key'] = str(api_user_key)
@@ -396,11 +395,11 @@ class PastebinAPI(object):
         request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
         response = request_string.read()
 
-        # do some basic error checking here so we can gracefully handle any 
+        # do some basic error checking here so we can gracefully handle any
         # errors we are likely to encounter
         if response.startswith(self._bad_request):
             raise PastebinError(response)
-          
+
         elif not response.startswith('<user>'):
             raise PastebinError(response)
 
@@ -409,7 +408,7 @@ class PastebinAPI(object):
 
     def trending(self, api_dev_key):
         """Returns the top trending paste details.
-        
+
 
         Usage Example::
             >>> from pastebin import PastebinAPI
@@ -428,18 +427,18 @@ class PastebinAPI(object):
             <paste_url>http://pastebin.com/jjMRFDH6</paste_url>
             <paste_hits>6384</paste_hits>
             </paste>
-            
+
         Note: Returns multiple trending pastes, not just 1.
-        
-        
+
+
         @type   api_dev_key: string
         @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
-        
-        
+
+
         @rtype:  string
         @return: Returns the string (XML formatted) containing the top trending pastes.
         """
-        
+
         # Valid api developer key
         argv = {'api_dev_key' : str(api_dev_key) }
 
@@ -450,11 +449,11 @@ class PastebinAPI(object):
         request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
         response = request_string.read()
 
-        # do some basic error checking here so we can gracefully handle any 
+        # do some basic error checking here so we can gracefully handle any
         # errors we are likely to encounter
         if response.startswith(self._bad_request):
             raise PastebinError(response)
-        
+
         elif not response.startswith('<paste>'):
             raise PastebinError(response)
 
@@ -463,8 +462,8 @@ class PastebinAPI(object):
 
     def pastes_by_user(self, api_dev_key, api_user_key, results_limit = None):
         """Returns all pastes for the provided api_user_key.
-       
-        
+
+
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
@@ -484,16 +483,16 @@ class PastebinAPI(object):
             <paste_url>http://pastebin.com/DLiSspYT</paste_url>
             <paste_hits>70</paste_hits>
             </paste>
-            
+
         Note: Returns multiple pastes, not just 1.
-        
-        
+
+
         @type   api_dev_key: string
         @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
-        
+
         @type   api_user_key: string
         @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
-        
+
         @type   results_limit: number
         @param  results_limit: The number of pastes to return between 1 - 1000.
 
@@ -511,7 +510,7 @@ class PastebinAPI(object):
         # Number of results to return - between 1 & 1000, default = 50
         if results_limit is None:
             argv['api_results_limit'] = 50
-      
+
         if results_limit is not None:
             if results_limit < 1:
                 argv['api_results_limit'] = 50
@@ -527,11 +526,11 @@ class PastebinAPI(object):
         request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
         response = request_string.read()
 
-        # do some basic error checking here so we can gracefully handle any 
+        # do some basic error checking here so we can gracefully handle any
         # errors we are likely to encounter
         if response.startswith(self._bad_request):
             raise PastebinError(response)
-        
+
         elif not response.startswith('<paste>'):
             raise PastebinError(response)
 
@@ -540,8 +539,8 @@ class PastebinAPI(object):
 
     def generate_user_key(self, api_dev_key, username, password):
         """Generate a user session key - needed for other functions.
-          
-          
+
+
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
@@ -550,20 +549,20 @@ class PastebinAPI(object):
             ...                             '12345678')
             >>> print my_key
             c57a18e6c0ae228cd4bd16fe36da381a
-            
-            
+
+
         @type   api_dev_key: string
         @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
-        
+
         @type   username: string
         @param  username: The username of a registered U{http://pastebin.com} account.
-        
+
         @type   password: string
         @param  password: The password of a registered U{http://pastebin.com} account.
 
         @rtype: string
         @returns: Session key (api_user_key) to allow authenticated interaction to the API.
-            
+
         """
         # Valid api developer key
         argv = {'api_dev_key' : str(api_dev_key) }
@@ -592,28 +591,28 @@ class PastebinAPI(object):
             paste_private = None, paste_expire_date = None):
 
         """Submit a code snippet to Pastebin using the new API.
-      
-      
+
+
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
             >>> url = x.paste('453a994e0e2f1efae07f8759e59e075b' ,
             ...               'Snippet of code to paste goes here',
             ...               paste_name = 'title of paste',
-            ...               api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a', 
+            ...               api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a',
             ...               paste_format = 'python',
             ...               paste_private = 'unlisted',
             ...               paste_expire_date = '10M')
             >>> print url
             http://pastebin.com/tawPUgqY
-            
+
 
         @type   api_dev_key: string
         @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
-        
+
         @type   api_paste_code: string
         @param  api_paste_code: The file or string to paste to body of the U{http://pastebin.com} paste.
-        
+
         @type   api_user_key: string
         @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
             If none specified, paste is made as a guest.
@@ -689,12 +688,12 @@ class PastebinAPI(object):
         request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
         response = request_string.read()
 
-        # do some basic error checking here so we can gracefully handle any 
+        # do some basic error checking here so we can gracefully handle any
         # errors we are likely to encounter
         if response.startswith(self._bad_request):
             raise PastebinError(response)
         elif not response.startswith(self._prefix_url):
-            raise PastebinError(response)  
+            raise PastebinError(response)
 
         return response
 
@@ -706,8 +705,8 @@ class PastebinAPI(object):
 
         Unlike the official API, this one doesn't require an API key, so it's
         virtually anonymous.
-        
-        
+
+
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
@@ -719,14 +718,14 @@ class PastebinAPI(object):
             >>> print url
             http://pastebin.com/tawPUgqY
 
-       
+
         @type   paste_code: string
         @param  paste_code: The file or string to paste to body of the U{http://pastebin.com} paste.
-        
+
         @type   paste_name: string
         @param  paste_name: (Optional) Title of the paste.
             Default is to paste with no title.
-            
+
         @type   paste_private: string
         @param  paste_private: (Optional) C{'public'} if the paste is public (visible
             by everyone), C{'unlisted'} if it's public but not searchable.
@@ -775,12 +774,12 @@ class PastebinAPI(object):
         request_string = urllib.urlopen(self._legacy_api_url, urllib.urlencode(argv))
         response = request_string.read()
 
-        # do some basic error checking here so we can gracefully handle any 
+        # do some basic error checking here so we can gracefully handle any
         # errors we are likely to encounter
         if response.startswith(self._bad_request):
             raise PastebinError(response)
         elif not response.startswith(self._prefix_url):
-            raise PastebinError(response)  
+            raise PastebinError(response)
 
         return response
 
