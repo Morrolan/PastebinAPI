@@ -601,8 +601,8 @@ class PastebinAPI(object):
         return response
 
     def paste(self, api_dev_key, api_paste_code,
-            api_user_key=None, paste_name=None, paste_format=None,
-            paste_private=None, paste_expire_date=None):
+              api_user_key=None, paste_name=None, paste_format=None,
+              paste_private=None, paste_expire_date=None):
 
         """Submit a code snippet to Pastebin using the new API.
 
@@ -717,8 +717,8 @@ class PastebinAPI(object):
         return response
 
     def legacy_paste(self, paste_code,
-            paste_name=None, paste_private=None,
-            paste_expire_date=None, paste_format=None):
+                     paste_name=None, paste_private=None,
+                     paste_expire_date=None, paste_format=None):
         """Unofficial python interface to the Pastebin legacy API.
 
         Unlike the official API, this one doesn't require an API key, so it's
