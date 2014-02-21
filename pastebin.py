@@ -54,8 +54,8 @@ class PastebinAPI(object):
     generate_user_key -- Generates a session-key that is required for other
     functions.
 
-    pastes_by_user -- Returns all public pastes submitted by the specified login
-    credentials.
+    pastes_by_user -- Returns all public pastes submitted by the specified
+    login credentials.
 
     trending -- Returns the top trending paste.
 
@@ -85,7 +85,7 @@ class PastebinAPI(object):
     # URL to the login POST API
     _api_login_url = 'http://%s/api/api_login.php' % _base_domain
 
-    # Valid paste_expire_date values (Never, 10 minutes, 1 Hour, 1 Day, 1 Month)
+    # Valid paste_expire_date values: Never, 10 minutes, 1 Hour, 1 Day, 1 Month
     paste_expire_date = ('N', '10M', '1H', '1D', '1M')
 
     # Valid paste_expire_date values (0 = public, 1 = unlisted, 2 = private)
@@ -306,21 +306,26 @@ class PastebinAPI(object):
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
-            >>> paste_to_delete = x.delete_paste('453a994e0e2f1efae07f8759e59e075b',
-            ...                                 'c57a18e6c0ae228cd4bd16fe36da381a',
-            ...                                 'WkgcTFtv')
+            >>> paste_to_delete = x.delete_paste(
+            ...     '453a994e0e2f1efae07f8759e59e075b',
+            ...     'c57a18e6c0ae228cd4bd16fe36da381a',
+            ...     'WkgcTFtv')
             >>> print paste_to_delete
             Paste Removed
 
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered
+                             U{http://pastebin.com} account.
 
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
+        @param  api_user_key: The API User Key of a U{http://pastebin.com}
+                              registered user.
 
         @type   api_paste_key: string
-        @param  api_paste_key: The Paste Key of the paste to be deleted (string after final / in U{http://pastebin.com} URL).
+        @param  api_paste_key: The Paste Key of the paste to be deleted
+                               (string after final / in
+                               U{http://pastebin.com} URL).
 
         @rtype: string
         @returns: A successful deletion returns 'Paste Removed'.
@@ -370,10 +375,12 @@ class PastebinAPI(object):
 
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered
+                             U{http://pastebin.com} account.
 
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
+        @param  api_user_key: The API User Key of a U{http://pastebin.com}
+                              registered user.
 
         @rtype: string
         @returns: Returns an XML string containing user information.
@@ -430,11 +437,13 @@ class PastebinAPI(object):
 
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered
+                             U{http://pastebin.com} account.
 
 
         @rtype:  string
-        @return: Returns the string (XML formatted) containing the top trending pastes.
+        @return: Returns the string (XML formatted) containing the top
+                 trending pastes.
         """
 
         # Valid api developer key
@@ -485,16 +494,19 @@ class PastebinAPI(object):
 
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered
+                             U{http://pastebin.com} account.
 
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
+        @param  api_user_key: The API User Key of a U{http://pastebin.com}
+                              registered user.
 
         @type   results_limit: number
         @param  results_limit: The number of pastes to return between 1 - 1000.
 
         @rtype: string
-        @returns: Returns an XML string containing number of specified pastes by user.
+        @returns: Returns an XML string containing number of specified pastes
+                  by user.
         """
 
         # Valid api developer key
@@ -540,24 +552,29 @@ class PastebinAPI(object):
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
-            >>> my_key = x.generate_user_key('453a994e0e2f1efae07f8759e59e075b',
-            ...                             'MonkeyPuzzle',
-            ...                             '12345678')
+            >>> my_key = x.generate_user_key(
+            ...     '453a994e0e2f1efae07f8759e59e075b',
+            ...     'MonkeyPuzzle',
+            ...     '12345678')
             >>> print my_key
             c57a18e6c0ae228cd4bd16fe36da381a
 
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered
+                             U{http://pastebin.com} account.
 
         @type   username: string
-        @param  username: The username of a registered U{http://pastebin.com} account.
+        @param  username: The username of a registered U{http://pastebin.com}
+                          account.
 
         @type   password: string
-        @param  password: The password of a registered U{http://pastebin.com} account.
+        @param  password: The password of a registered U{http://pastebin.com}
+                          account.
 
         @rtype: string
-        @returns: Session key (api_user_key) to allow authenticated interaction to the API.
+        @returns: Session key (api_user_key) to allow authenticated
+                  interaction to the API.
 
         """
         # Valid api developer key
@@ -572,10 +589,12 @@ class PastebinAPI(object):
             argv['api_user_password'] = str(password)
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._api_login_url, urllib.urlencode(argv))
+        data = urllib.urlencode(argv)
+        request_string = urllib.urlopen(self._api_login_url, data)
         response = request_string.read()
 
-        # do some basic error checking here so we can gracefully handle any errors we are likely to encounter
+        # do some basic error checking here so we can gracefully handle
+        # any errors we are likely to encounter
         if response.startswith(self._bad_request):
             raise PastebinError(response)
 
@@ -591,26 +610,30 @@ class PastebinAPI(object):
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> x = PastebinAPI()
-            >>> url = x.paste('453a994e0e2f1efae07f8759e59e075b' ,
-            ...               'Snippet of code to paste goes here',
-            ...               paste_name = 'title of paste',
-            ...               api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a',
-            ...               paste_format = 'python',
-            ...               paste_private = 'unlisted',
-            ...               paste_expire_date = '10M')
+            >>> url = x.paste(
+            ...     '453a994e0e2f1efae07f8759e59e075b' ,
+            ...     'Snippet of code to paste goes here',
+            ...     paste_name = 'title of paste',
+            ...     api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a',
+            ...     paste_format = 'python',
+            ...     paste_private = 'unlisted',
+            ...     paste_expire_date = '10M')
             >>> print url
             http://pastebin.com/tawPUgqY
 
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered
+                             U{http://pastebin.com} account.
 
         @type   api_paste_code: string
-        @param  api_paste_code: The file or string to paste to body of the U{http://pastebin.com} paste.
+        @param  api_paste_code: The file or string to paste to body of the
+                                U{http://pastebin.com} paste.
 
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
-            If none specified, paste is made as a guest.
+        @param  api_user_key: The API User Key of a U{http://pastebin.com}
+                              registered user.
+                              If none specified, paste is made as a guest.
 
         @type   paste_name: string
         @param  paste_name: (Optional) Title of the paste.
@@ -623,16 +646,18 @@ class PastebinAPI(object):
             just text and not source code).
 
         @type  paste_private: string
-        @param paste_private: (Optional) C{'public'} if the paste is public (visible
-            by everyone), C{'unlisted'} if it's public but not searchable.
-            C{'private'} if the paste is private and not searchable or indexed.
+        @param paste_private: (Optional) C{'public'} if the paste is public
+            (visible by everyone), C{'unlisted'} if it's public but not
+            searchable. C{'private'} if the paste is private and not
+            searchable or indexed.
             The Pastebin FAQ (U{http://pastebin.com/faq}) claims
             private pastes are not indexed by search engines (aka Google).
 
         @type  paste_expire_date: str
         @param paste_expire_date: (Optional) Expiration date for the paste.
             Once past this date the paste is deleted automatically. Valid
-            values are found in the L{PastebinAPI.paste_expire_date} class member.
+            values are found in the L{PastebinAPI.paste_expire_date} class
+            member.
             If not provided, the paste never expires.
 
         @rtype:  string
@@ -713,23 +738,26 @@ class PastebinAPI(object):
 
 
         @type   paste_code: string
-        @param  paste_code: The file or string to paste to body of the U{http://pastebin.com} paste.
+        @param  paste_code: The file or string to paste to body of the
+                            U{http://pastebin.com} paste.
 
         @type   paste_name: string
         @param  paste_name: (Optional) Title of the paste.
             Default is to paste with no title.
 
         @type   paste_private: string
-        @param  paste_private: (Optional) C{'public'} if the paste is public (visible
-            by everyone), C{'unlisted'} if it's public but not searchable.
-            C{'private'} if the paste is private and not searchable or indexed.
+        @param  paste_private: (Optional) C{'public'} if the paste is public
+            (visible by everyone), C{'unlisted'} if it's public but not
+            searchable. C{'private'} if the paste is private and not
+            searchable or indexed.
             The Pastebin FAQ (U{http://pastebin.com/faq}) claims
             private pastes are not indexed by search engines (aka Google).
 
         @type   paste_expire_date: string
         @param  paste_expire_date: (Optional) Expiration date for the paste.
             Once past this date the paste is deleted automatically. Valid
-            values are found in the L{PastebinAPI.paste_expire_date} class member.
+            values are found in the L{PastebinAPI.paste_expire_date} class
+            member.
             If not provided, the paste never expires.
 
         @type   paste_format: string
@@ -764,7 +792,8 @@ class PastebinAPI(object):
             argv['paste_format'] = paste_format
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._legacy_api_url, urllib.urlencode(argv))
+        data = urllib.urlencode(argv)
+        request_string = urllib.urlopen(self._legacy_api_url, data)
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any
