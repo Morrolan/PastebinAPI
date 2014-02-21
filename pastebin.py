@@ -32,11 +32,13 @@ __ALL__ = ['delete_paste', 'user_details', 'trending', 'pastes_by_user',
 
 import urllib
 
+
 class PastebinError(RuntimeError):
     """Pastebin API error.
 
     The error message returned by the web application is stored as the Python
     exception message."""
+
 
 class PastebinAPI(object):
     """Pastebin API interaction object.
@@ -75,13 +77,13 @@ class PastebinAPI(object):
     _subdomain_url = 'http://%%s.%s/' % _base_domain
 
     # URL to the LEGACY POST API
-    _legacy_api_url= 'http://%s/api_public.php' % _base_domain
+    _legacy_api_url = 'http://%s/api_public.php' % _base_domain
 
     # URL to the POST API
-    _api_url= 'http://%s/api/api_post.php' % _base_domain
+    _api_url = 'http://%s/api/api_post.php' % _base_domain
 
     # URL to the login POST API
-    _api_login_url= 'http://%s/api/api_login.php' % _base_domain
+    _api_login_url = 'http://%s/api/api_login.php' % _base_domain
 
     # Valid paste_expire_date values (Never, 10 minutes, 1 Hour, 1 Day, 1 Month)
     paste_expire_date = ('N', '10M', '1H', '1D', '1M')
@@ -297,7 +299,6 @@ class PastebinAPI(object):
     def __init__(self):
         pass
 
-
     def delete_paste(self, api_dev_key, api_user_key, api_paste_key):
         """Delete the paste specified by the api_paste_key.
 
@@ -326,7 +327,7 @@ class PastebinAPI(object):
         """
 
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        argv = {'api_dev_key': str(api_dev_key)}
 
         # Requires pre-registered account
         if api_user_key is not None:
@@ -344,7 +345,6 @@ class PastebinAPI(object):
         response = request_string.read()
 
         return response
-
 
     def user_details(self, api_dev_key, api_user_key):
         """Return user details of the user specified by the api_user_key.
@@ -380,7 +380,7 @@ class PastebinAPI(object):
         """
 
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        argv = {'api_dev_key': str(api_dev_key)}
 
         # Requires pre-registered account to generate an api_user_key
         # (see generate_user_key)
@@ -403,7 +403,6 @@ class PastebinAPI(object):
             raise PastebinError(response)
 
         return response
-
 
     def trending(self, api_dev_key):
         """Returns the top trending paste details.
@@ -439,7 +438,7 @@ class PastebinAPI(object):
         """
 
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        argv = {'api_dev_key': str(api_dev_key)}
 
         # Valid API option - 'trends' is returns trending pastes
         argv['api_option'] = str('trends')
@@ -458,8 +457,7 @@ class PastebinAPI(object):
 
         return response
 
-
-    def pastes_by_user(self, api_dev_key, api_user_key, results_limit = None):
+    def pastes_by_user(self, api_dev_key, api_user_key, results_limit=None):
         """Returns all pastes for the provided api_user_key.
 
 
@@ -500,7 +498,7 @@ class PastebinAPI(object):
         """
 
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        argv = {'api_dev_key': str(api_dev_key)}
 
         # Requires pre-registered account
         if api_user_key is not None:
@@ -535,7 +533,6 @@ class PastebinAPI(object):
 
         return response
 
-
     def generate_user_key(self, api_dev_key, username, password):
         """Generate a user session key - needed for other functions.
 
@@ -564,7 +561,7 @@ class PastebinAPI(object):
 
         """
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        argv = {'api_dev_key': str(api_dev_key)}
 
         # Requires pre-registered pastebin account
         if username is not None:
@@ -584,10 +581,9 @@ class PastebinAPI(object):
 
         return response
 
-
     def paste(self, api_dev_key, api_paste_code,
-            api_user_key = None, paste_name = None, paste_format = None,
-            paste_private = None, paste_expire_date = None):
+            api_user_key=None, paste_name=None, paste_format=None,
+            paste_private=None, paste_expire_date=None):
 
         """Submit a code snippet to Pastebin using the new API.
 
@@ -643,9 +639,8 @@ class PastebinAPI(object):
         @return: Returns the URL to the newly created paste.
         """
 
-
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        argv = {'api_dev_key': str(api_dev_key)}
 
         # Code snippet to submit
         if api_paste_code is not None:
@@ -696,10 +691,9 @@ class PastebinAPI(object):
 
         return response
 
-
     def legacy_paste(self, paste_code,
-            paste_name = None, paste_private = None,
-            paste_expire_date = None, paste_format = None):
+            paste_name=None, paste_private=None,
+            paste_expire_date=None, paste_format=None):
         """Unofficial python interface to the Pastebin legacy API.
 
         Unlike the official API, this one doesn't require an API key, so it's
@@ -749,7 +743,7 @@ class PastebinAPI(object):
         """
 
         # Code snippet to submit
-        argv = { 'paste_code' : str(paste_code) }
+        argv = {'paste_code': str(paste_code)}
 
         # Name of the poster
         if paste_name is not None:
@@ -781,10 +775,6 @@ class PastebinAPI(object):
             raise PastebinError(response)
 
         return response
-
-
-
-
 
 
 ######################################################
