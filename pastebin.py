@@ -815,8 +815,3 @@ pastes_by_user = PastebinAPI.pastes_by_user
 generate_user_key = PastebinAPI.generate_user_key
 legacy_paste = PastebinAPI.legacy_paste
 paste = PastebinAPI.paste
-
-######################################################
-
-if __name__ == "__main__":
-    main()
