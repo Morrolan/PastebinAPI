@@ -70,7 +70,7 @@ class PastebinAPI(object):
     # Base domain name
     _base_domain = 'pastebin.com'
 
-    # Valid Pastebin URLs begin with this string (kinda bvious)
+    # Valid Pastebin URLs begin with this string (kinda obvious)
     _prefix_url = 'http://%s/' % _base_domain
 
     # Valid Pastebin URLs with a custom subdomain begin with this string
@@ -302,16 +302,15 @@ class PastebinAPI(object):
     def delete_paste(self, api_dev_key, api_user_key, api_paste_key):
         """Delete the paste specified by the api_paste_key.
 
-
         Usage Example::
-            >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> paste_to_delete = x.delete_paste(
-            ...     '453a994e0e2f1efae07f8759e59e075b',
-            ...     'c57a18e6c0ae228cd4bd16fe36da381a',
-            ...     'WkgcTFtv')
-            >>> print paste_to_delete
-            Paste Removed
+        from pastebin import PastebinAPI
+        x = PastebinAPI()
+        paste_to_delete = x.delete_paste(
+            '453a994e0e2f1efae07f8759e59e075b',
+            'c57a18e6c0ae228cd4bd16fe36da381a',
+            'WkgcTFtv')
+        print paste_to_delete
+        Paste Removed
 
 
         @type   api_dev_key: string
@@ -356,11 +355,10 @@ class PastebinAPI(object):
 
 
         Usage Example::
-            >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> details = x.user_details('453a994e0e2f1efae07f8759e59e075b',
-            ...                         'c57a18e6c0ae228cd4bd16fe36da381a')
-            >>> print details
+            from pastebin import PastebinAPI
+            x = PastebinAPI()
+            details = x.user_details('453a994e0e2f1efae07f8759e59e075b', 'c57a18e6c0ae228cd4bd16fe36da381a')
+            print details
             <user>
             <user_name>MonkeyPuzzle</user_name>
             <user_format_short>python</user_format_short>
@@ -416,10 +414,10 @@ class PastebinAPI(object):
 
 
         Usage Example::
-            >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> details = x.trending('453a994e0e2f1efae07f8759e59e075b')
-            >>> print details
+            from pastebin import PastebinAPI
+            x = PastebinAPI()
+            details = x.trending('453a994e0e2f1efae07f8759e59e075b')
+            print details
             <paste>
             <paste_key>jjMRFDH6</paste_key>
             <paste_date>1333230838</paste_date>
@@ -447,10 +445,9 @@ class PastebinAPI(object):
         """
 
         # Valid api developer key
-        argv = {'api_dev_key': str(api_dev_key)}
+        argv = {'api_dev_key': str(api_dev_key), 'api_option': str('trends')}
 
         # Valid API option - 'trends' is returns trending pastes
-        argv['api_option'] = str('trends')
 
         # lets try to read the URL that we've just built.
         request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
@@ -471,12 +468,12 @@ class PastebinAPI(object):
 
 
         Usage Example::
-            >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> details = x.user_details('453a994e0e2f1efae07f8759e59e075b',
-            ...                         'c57a18e6c0ae228cd4bd16fe36da381a',
-            ...                         100)
-            >>> print details
+            from pastebin import PastebinAPI
+            x = PastebinAPI()
+            details = x.user_details('453a994e0e2f1efae07f8759e59e075b',
+                                     'c57a18e6c0ae228cd4bd16fe36da381a',
+                                     100)
+            print details
             <paste>
             <paste_key>DLiSspYT</paste_key>
             <paste_date>1332714730</paste_date>
@@ -550,13 +547,13 @@ class PastebinAPI(object):
 
 
         Usage Example::
-            >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> my_key = x.generate_user_key(
-            ...     '453a994e0e2f1efae07f8759e59e075b',
-            ...     'MonkeyPuzzle',
-            ...     '12345678')
-            >>> print my_key
+            from pastebin import PastebinAPI
+            x = PastebinAPI()
+            my_key = x.generate_user_key(
+                '453a994e0e2f1efae07f8759e59e075b',
+                'MonkeyPuzzle',
+                '12345678')
+            print my_key
             c57a18e6c0ae228cd4bd16fe36da381a
 
 
@@ -608,17 +605,17 @@ class PastebinAPI(object):
 
 
         Usage Example::
-            >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> url = x.paste(
-            ...     '453a994e0e2f1efae07f8759e59e075b' ,
-            ...     'Snippet of code to paste goes here',
-            ...     paste_name = 'title of paste',
-            ...     api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a',
-            ...     paste_format = 'python',
-            ...     paste_private = 'unlisted',
-            ...     paste_expire_date = '10M')
-            >>> print url
+            from pastebin import PastebinAPI
+            x = PastebinAPI()
+            url = x.paste(
+                '453a994e0e2f1efae07f8759e59e075b' ,
+                'Snippet of code to paste goes here',
+                paste_name = 'title of paste',
+                api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a',
+                paste_format = 'python',
+                paste_private = 'unlisted',
+                paste_expire_date = '10M')
+            print url
             http://pastebin.com/tawPUgqY
 
 
@@ -726,14 +723,14 @@ class PastebinAPI(object):
 
 
         Usage Example::
-            >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> url = x.legacy_paste('Snippet of code to paste goes here',
-            ...                     paste_name = 'title of paste',
-            ...                     paste_private = 'unlisted',
-            ...                     paste_expire_date = '10M',
-            ...                     paste_format = 'python')
-            >>> print url
+            from pastebin import PastebinAPI
+            x = PastebinAPI()
+            url = x.legacy_paste('Snippet of code to paste goes here',
+                                paste_name = 'title of paste',
+                                paste_private = 'unlisted',
+                                paste_expire_date = '10M',
+                                paste_format = 'python')
+            print url
             http://pastebin.com/tawPUgqY
 
 
