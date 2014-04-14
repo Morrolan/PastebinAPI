@@ -26,8 +26,8 @@
 #############################################################################
 
 
-__ALL__ = ['delete_paste', 'user_details', 'trending', 'pastes_by_user',
-           'generate_user_key', 'legacy_paste', 'paste', 'Pastebin',
+__all__ = ['delete_paste', 'user_details', 'trending', 'pastes_by_user',
+           'generate_user_key', 'legacy_paste', 'paste', 'PastebinAPI',
            'PastebinError']
 
 import urllib
