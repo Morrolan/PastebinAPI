@@ -102,21 +102,6 @@ Return an XML list of all **pastes by user**.  Result limit defaults to none, so
 
 
 
-
-
-**Legacy (Anonymous) paste** to Pastebin:
-
-::
-
-   >>> PastebinAPI.legacy_paste(paste_code, paste_name = None, 
-   ...                          paste_private = None, paste_expire_date = None, 
-   ...                          paste_format = None)
-
-
-
-
-
-
 Note that any parameter which is listed about as ' = *None*' is optional. 
 Details of valid input parameters for paste function are below.
 
