@@ -28,7 +28,7 @@
 
 __all__ = ['delete_paste', 'user_details', 'trending', 'pastes_by_user',
            'generate_user_key', 'legacy_paste', 'paste', 'PastebinAPI',
-           'PastebinError']
+           'PastebinError', 'PostLimitError']
 
 import urllib
 
@@ -38,6 +38,12 @@ class PastebinError(RuntimeError):
 
     The error message returned by the web application is stored as the Python
     exception message."""
+
+
+class PostLimitError(PastebinError):
+    """The user reached the limit of posts that can do in a day.
+    For more information look at: http://pastebin.com/faq#11a
+    """
 
 
 class PastebinAPI(object):
@@ -66,6 +72,9 @@ class PastebinAPI(object):
 
     # String to determine bad API requests
     _bad_request = 'Bad API request'
+
+    # String to determine if we reached the max post limit per day
+    _post_limit = 'Post limit, maximum pastes per 24h reached'
 
     # Base domain name
     _base_domain = 'pastebin.com'
@@ -708,6 +717,8 @@ class PastebinAPI(object):
         # errors we are likely to encounter
         if response.startswith(self._bad_request):
             raise PastebinError(response)
+        elif response.startswith(self._post_limit):
+            raise PostLimitError(response)
         elif not response.startswith(self._prefix_url):
             raise PastebinError(response)
 
