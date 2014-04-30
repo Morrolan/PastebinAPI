@@ -17,7 +17,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-
 #############################################################################
 
 # This software is a derivative work of:
@@ -72,10 +71,13 @@ class PastebinAPI(object):
     _subdomain_url = 'http://%%s.%s/' % _base_domain
 
     # URL to the LEGACY POST API
-    _legacy_api_url= 'http://%s/api_public.php' % _base_domain
+    _legacy_api_url = 'http://%s/api_public.php' % _base_domain
 
     # URL to the POST API
-    _api_url= 'http://%s/api/api_post.php' % _base_domain
+    _api_url = 'http://%s/api/api_post.php' % _base_domain
+
+    # URL to the Login API
+    _api_login_url = 'http://%s/api/api_login.php' % _base_domain
 
     # Valid paste_expire_date values (Never, 10 minutes, 1 Hour, 1 Day, 1 Month)
     paste_expire_date = ('N', '10M', '1H', '1D', '1M')
