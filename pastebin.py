@@ -70,8 +70,9 @@ class PastebinAPI(object):
     # Valid Pastebin URLs with a custom subdomain begin with this string
     _subdomain_url = 'http://%%s.%s/' % _base_domain
 
+    # DEPRECATED
     # URL to the LEGACY POST API
-    _legacy_api_url = 'http://%s/api_public.php' % _base_domain
+    #_legacy_api_url = 'http://%s/api_public.php' % _base_domain
 
     # URL to the POST API
     _api_url = 'http://%s/api/api_post.php' % _base_domain
