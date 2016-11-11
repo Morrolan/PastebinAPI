@@ -697,12 +697,13 @@ class PastebinAPI(object):
 
 ######################################################
 
-delete_paste = PastebinAPI.delete_paste
-user_details = PastebinAPI.user_details
-trending = PastebinAPI.trending
-pastes_by_user = PastebinAPI.pastes_by_user
-generate_user_key = PastebinAPI.generate_user_key
-paste = PastebinAPI.paste
+_api = PastebinAPI()
+delete_paste = _api.delete_paste
+user_details = _api.user_details
+trending = _api.trending
+pastes_by_user = _api.pastes_by_user
+generate_user_key = _api.generate_user_key
+paste = _api.paste
 
 ######################################################
 
