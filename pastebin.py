@@ -15,12 +15,12 @@
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 #############################################################################
 
 # This software is a derivative work of:
-# http://winappdbg.sourceforge.net/blog/pastebin.py
+# https://winappdbg.sourceforge.net/blog/pastebin.py
 
 #############################################################################
 
@@ -65,20 +65,20 @@ class PastebinAPI(object):
     _base_domain = 'pastebin.com'
 
     # Valid Pastebin URLs begin with this string (kinda bvious)
-    _prefix_url = 'http://%s/' % _base_domain
+    _prefix_url = 'https://%s/' % _base_domain
 
     # Valid Pastebin URLs with a custom subdomain begin with this string
-    _subdomain_url = 'http://%%s.%s/' % _base_domain
+    _subdomain_url = 'https://%%s.%s/' % _base_domain
 
     # DEPRECATED
     # URL to the LEGACY POST API
-    #_legacy_api_url = 'http://%s/api_public.php' % _base_domain
+    #_legacy_api_url = 'https://%s/api_public.php' % _base_domain
 
     # URL to the POST API
-    _api_url = 'http://%s/api/api_post.php' % _base_domain
+    _api_url = 'https://%s/api/api_post.php' % _base_domain
 
     # URL to the Login API
-    _api_login_url = 'http://%s/api/api_login.php' % _base_domain
+    _api_login_url = 'https://%s/api/api_login.php' % _base_domain
 
     # Valid paste_expire_date values (Never, 10 minutes, 1 Hour, 1 Day, 1 Month)
     paste_expire_date = ('N', '10M', '1H', '1D', '1M')
@@ -310,13 +310,13 @@ class PastebinAPI(object):
             
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered U{https://pastebin.com} account.
         
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
+        @param  api_user_key: The API User Key of a U{https://pastebin.com} registered user.
         
         @type   api_paste_key: string
-        @param  api_paste_key: The Paste Key of the paste to be deleted (string after final / in U{http://pastebin.com} URL).
+        @param  api_paste_key: The Paste Key of the paste to be deleted (string after final / in U{https://pastebin.com} URL).
 
         @rtype: string
         @returns: A successful deletion returns 'Paste Removed'.
@@ -358,7 +358,7 @@ class PastebinAPI(object):
             <user_name>MonkeyPuzzle</user_name>
             <user_format_short>python</user_format_short>
             <user_expiration>N</user_expiration>
-            <user_avatar_url>http://pastebin.com/i/guest.gif</user_avatar_url>
+            <user_avatar_url>https://pastebin.com/i/guest.gif</user_avatar_url>
             <user_private>0</user_private>
             <user_website></user_website>
             <user_email>user@email.com</user_email>
@@ -368,10 +368,10 @@ class PastebinAPI(object):
         
         
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered U{https://pastebin.com} account.
         
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
+        @param  api_user_key: The API User Key of a U{https://pastebin.com} registered user.
 
         @rtype: string
         @returns: Returns an XML string containing user information.
@@ -421,7 +421,7 @@ class PastebinAPI(object):
             <paste_private>0</paste_private>
             <paste_format_long>None</paste_format_long>
             <paste_format_short>text</paste_format_short>
-            <paste_url>http://pastebin.com/jjMRFDH6</paste_url>
+            <paste_url>https://pastebin.com/jjMRFDH6</paste_url>
             <paste_hits>6384</paste_hits>
             </paste>
             
@@ -429,7 +429,7 @@ class PastebinAPI(object):
         
         
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered U{https://pastebin.com} account.
         
         
         @rtype:  string
@@ -477,7 +477,7 @@ class PastebinAPI(object):
             <paste_private>0</paste_private>
             <paste_format_long>Python</paste_format_long>
             <paste_format_short>python</paste_format_short>
-            <paste_url>http://pastebin.com/DLiSspYT</paste_url>
+            <paste_url>https://pastebin.com/DLiSspYT</paste_url>
             <paste_hits>70</paste_hits>
             </paste>
             
@@ -485,10 +485,10 @@ class PastebinAPI(object):
         
         
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered U{https://pastebin.com} account.
         
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
+        @param  api_user_key: The API User Key of a U{https://pastebin.com} registered user.
         
         @type   results_limit: number
         @param  results_limit: The number of pastes to return between 1 - 1000.
@@ -549,13 +549,13 @@ class PastebinAPI(object):
             
             
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered U{https://pastebin.com} account.
         
         @type   username: string
-        @param  username: The username of a registered U{http://pastebin.com} account.
+        @param  username: The username of a registered U{https://pastebin.com} account.
         
         @type   password: string
-        @param  password: The password of a registered U{http://pastebin.com} account.
+        @param  password: The password of a registered U{https://pastebin.com} account.
 
         @rtype: string
         @returns: Session key (api_user_key) to allow authenticated interaction to the API.
@@ -601,17 +601,17 @@ class PastebinAPI(object):
             ...               paste_private = 'unlisted',
             ...               paste_expire_date = '10M')
             >>> print url
-            http://pastebin.com/tawPUgqY
+            https://pastebin.com/tawPUgqY
             
 
         @type   api_dev_key: string
-        @param  api_dev_key: The API Developer Key of a registered U{http://pastebin.com} account.
+        @param  api_dev_key: The API Developer Key of a registered U{https://pastebin.com} account.
         
         @type   api_paste_code: string
-        @param  api_paste_code: The file or string to paste to body of the U{http://pastebin.com} paste.
+        @param  api_paste_code: The file or string to paste to body of the U{https://pastebin.com} paste.
         
         @type   api_user_key: string
-        @param  api_user_key: The API User Key of a U{http://pastebin.com} registered user.
+        @param  api_user_key: The API User Key of a U{https://pastebin.com} registered user.
             If none specified, paste is made as a guest.
 
         @type   paste_name: string
@@ -621,14 +621,14 @@ class PastebinAPI(object):
         @type  paste_format: string
         @param paste_format: (Optional) Programming language of the code being
             pasted. This enables syntax highlighting when reading the code in
-            U{http://pastebin.com}. Default is no syntax highlighting (text is
+            U{https://pastebin.com}. Default is no syntax highlighting (text is
             just text and not source code).
 
         @type  paste_private: string
         @param paste_private: (Optional) C{'public'} if the paste is public (visible
             by everyone), C{'unlisted'} if it's public but not searchable.
             C{'private'} if the paste is private and not searchable or indexed.
-            The Pastebin FAQ (U{http://pastebin.com/faq}) claims
+            The Pastebin FAQ (U{https://pastebin.com/faq}) claims
             private pastes are not indexed by search engines (aka Google).
 
         @type  paste_expire_date: str
