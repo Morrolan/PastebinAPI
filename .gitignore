@@ -148,6 +148,9 @@ sdist
 develop-eggs
 .installed.cfg
 
+# Custom python env stuff
+env/
+*test.py
 
 # Installer logs
 pip-log.txt
