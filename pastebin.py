@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 #############################################################################
-#    Pastebin.py - Python 3.2 Pastebin API.
-#    Copyright (C) 2012  Ian Havelock
+#    Pastebin.py - Python 3.7 Pastebin API.
+#    Copyright (C) 2012 - 2019 Ian Havelock
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -30,6 +30,7 @@ __all__ = ['delete_paste', 'user_details', 'trending', 'pastes_by_user',
 
 import sys
 import urllib
+import requests
 
 class PastebinError(RuntimeError):
     """Pastebin API error.
@@ -59,26 +60,22 @@ class PastebinAPI(object):
     delete_paste -- Adds two numbers together and returns the result."""
 
     # String to determine bad API requests
-    _bad_request = 'Bad API request'
+    bad_request = 'Bad API request'
 
     # Base domain name
-    _base_domain = 'pastebin.com'
+    base_domain = 'pastebin.com'
 
-    # Valid Pastebin URLs begin with this string (kinda bvious)
-    _prefix_url = 'https://%s/' % _base_domain
+    # Valid Pastebin URLs begin with this string
+    prefix_url = 'https://{0}'.format(base_domain)
 
     # Valid Pastebin URLs with a custom subdomain begin with this string
-    _subdomain_url = 'https://%%s.%s/' % _base_domain
-
-    # DEPRECATED
-    # URL to the LEGACY POST API
-    #_legacy_api_url = 'http://%s/api_public.php' % _base_domain
+    subdomain_url = 'https://%%s.{0}/'.format(base_domain)
 
     # URL to the POST API
-    _api_url = 'https://%s/api/api_post.php' % _base_domain
+    api_url = 'https://{0}/api/api_post.php'.format(base_domain)
 
     # URL to the Login API
-    _api_login_url = 'https://%s/api/api_login.php' % _base_domain
+    api_login_url = 'https://{0}/api/api_login.php'.format(base_domain)
 
     # Valid paste_expire_date values (Never, 10 minutes, 1 Hour, 1 Day, 1 Month)
     paste_expire_date = ('N', '10M', '1H', '1D', '1M')
@@ -86,6 +83,7 @@ class PastebinAPI(object):
     # Valid paste_expire_date values (0 = public, 1 = unlisted, 2 = private)
     paste_private = ('public', 'unlisted', 'private')
 
+    # TODO: Check this list as this hasn't been updated in 7 years...
     # Valid parse_format values
     paste_format = (
         '4cs',              # 4CS
@@ -323,22 +321,22 @@ class PastebinAPI(object):
         """
 
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        payload = {'api_dev_key' : str(api_dev_key) }
 
         # Requires pre-registered account
         if api_user_key is not None:
-            argv['api_user_key'] = str(api_user_key)
+            payload['api_user_key'] = str(api_user_key)
 
         # Key of the paste to be deleted.
         if api_paste_key is not None:
-            argv['api_paste_key'] = str(api_paste_key)
+            payload['api_paste_key'] = str(api_paste_key)
           
         # Valid API option - 'user_details' in this instance
-        argv['api_option'] = str('delete')
+        payload['api_option'] = str('delete')
 
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
+        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
         response = request_string.read()
 
         return response
@@ -378,23 +376,23 @@ class PastebinAPI(object):
         """
         
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        payload = {'api_dev_key' : str(api_dev_key) }
 
         # Requires pre-registered account to generate an api_user_key 
         # (see generate_user_key)
         if api_user_key is not None:
-            argv['api_user_key'] = str(api_user_key)
+            payload['api_user_key'] = str(api_user_key)
 
         # Valid API option - 'user_details' in this instance
-        argv['api_option'] = str('userdetails')
+        payload['api_option'] = str('userdetails')
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
+        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any 
         # errors we are likely to encounter
-        if response.startswith(self._bad_request):
+        if response.startswith(self.bad_request):
             raise PastebinError(response)
           
         elif not response.startswith('<user>'):
@@ -437,18 +435,18 @@ class PastebinAPI(object):
         """
         
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        payload = {'api_dev_key' : str(api_dev_key) }
 
         # Valid API option - 'trends' is returns trending pastes
-        argv['api_option'] = str('trends')
+        payload['api_option'] = str('trends')
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
+        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any 
         # errors we are likely to encounter
-        if response.startswith(self._bad_request):
+        if response.startswith(self.bad_request):
             raise PastebinError(response)
         
         elif not response.startswith('<paste>'):
@@ -498,34 +496,34 @@ class PastebinAPI(object):
         """
 
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        payload = {'api_dev_key' : str(api_dev_key) }
 
         # Requires pre-registered account
         if api_user_key is not None:
-            argv['api_user_key'] = str(api_user_key)
+            payload['api_user_key'] = str(api_user_key)
 
         # Number of results to return - between 1 & 1000, default = 50
         if results_limit is None:
-            argv['api_results_limit'] = 50
+            payload['api_results_limit'] = 50
       
         if results_limit is not None:
             if results_limit < 1:
-                argv['api_results_limit'] = 50
+                payload['api_results_limit'] = 50
             elif results_limit > 1000:
-                argv['api_results_limit'] = 1000
+                payload['api_results_limit'] = 1000
             else:
-                argv['api_results_limit'] = int(results_limit)
+                payload['api_results_limit'] = int(results_limit)
 
         # Valid API option - 'paste' is default for new paste
-        argv['api_option'] = str('list')
+        payload['api_option'] = str('list')
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
+        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any 
         # errors we are likely to encounter
-        if response.startswith(self._bad_request):
+        if response.startswith(self.bad_request):
             raise PastebinError(response)
         
         elif not response.startswith('<paste>'):
@@ -562,22 +560,26 @@ class PastebinAPI(object):
             
         """
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        payload = {'api_dev_key' : str(api_dev_key) }
 
         # Requires pre-registered pastebin account
         if username is not None:
-            argv['api_user_name'] = str(username)
+            payload['api_user_name'] = str(username)
 
         # Requires pre-registered pastebin account
         if password is not None:
-            argv['api_user_password'] = str(password)
+            payload['api_user_password'] = str(password)
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._api_login_url, urllib.urlencode(argv))
+        if sys.version_info >= (3, 0):
+        	request_string = requests.get(self.api_login_url, data=payload)
+        else:
+        	request_string = urllib.urlopen(self.api_login_url, urllib.urlencode(payload))
+        
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any errors we are likely to encounter
-        if response.startswith(self._bad_request):
+        if response.startswith(self.bad_request):
             raise PastebinError(response)
 
         return response
@@ -643,53 +645,53 @@ class PastebinAPI(object):
 
 
         # Valid api developer key
-        argv = {'api_dev_key' : str(api_dev_key) }
+        payload = {'api_dev_key' : str(api_dev_key) }
 
         # Code snippet to submit
         if api_paste_code is not None:
-            argv['api_paste_code'] = str(api_paste_code)
+            payload['api_paste_code'] = str(api_paste_code)
 
         # Valid API option - 'paste' is default for new paste
-        argv['api_option'] = str('paste')
+        payload['api_option'] = str('paste')
 
         # API User Key
         if api_user_key is not None:
-            argv['api_user_key'] = str(api_user_key)
+            payload['api_user_key'] = str(api_user_key)
         elif api_user_key is None:
-            argv['api_user_key'] = str('')
+            payload['api_user_key'] = str('')
 
         # Name of the poster
         if paste_name is not None:
-            argv['api_paste_name'] = str(paste_name)
+            payload['api_paste_name'] = str(paste_name)
 
         # Syntax highlighting
         if paste_format is not None:
             paste_format = str(paste_format).strip().lower()
-            argv['api_paste_format'] = paste_format
+            payload['api_paste_format'] = paste_format
 
         # Is the snippet private?
         if paste_private is not None:
             if paste_private == 'public':
-                argv['api_paste_private'] = int(0)
+                payload['api_paste_private'] = int(0)
             elif paste_private == 'unlisted':
-                argv['api_paste_private'] = int(1)
+                payload['api_paste_private'] = int(1)
             elif paste_private == 'private':
-                argv['api_paste_private'] = int(2)
+                payload['api_paste_private'] = int(2)
 
         # Expiration for the snippet
         if paste_expire_date is not None:
             paste_expire_date = str(paste_expire_date).strip().upper()
-            argv['api_paste_expire_date'] = paste_expire_date
+            payload['api_paste_expire_date'] = paste_expire_date
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self._api_url, urllib.urlencode(argv))
+        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any 
         # errors we are likely to encounter
-        if response.startswith(self._bad_request):
+        if response.startswith(self.bad_request):
             raise PastebinError(response)
-        elif not response.startswith(self._prefix_url):
+        elif not response.startswith(self.prefix_url):
             raise PastebinError(response)  
 
         return response
@@ -697,13 +699,13 @@ class PastebinAPI(object):
 
 ######################################################
 
-_api = PastebinAPI()
-delete_paste = _api.delete_paste
-user_details = _api.user_details
-trending = _api.trending
-pastes_by_user = _api.pastes_by_user
-generate_user_key = _api.generate_user_key
-paste = _api.paste
+api = PastebinAPI()
+delete_paste = api.delete_paste
+user_details = api.user_details
+trending = api.trending
+pastes_by_user = api.pastes_by_user
+generate_user_key = api.generate_user_key
+paste = api.paste
 
 ######################################################
 
