@@ -2,7 +2,7 @@
 
 #############################################################################
 #    Pastebin.py - Python Pastebin API.
-#    Copyright (C) 2012  Ian Havelock
+#    Copyright (C) 2012 - 2019 Ian Havelock
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ from setuptools import setup
 long_desc = open('readme.rst').read()
 
 setup(name = 'Pastebin',
-      version = '1.1.1',
+      version = '2.0',
       py_modules = ['pastebin'],
       author = 'Ian Havelock',
       author_email = 'ian@morrolan.com',
