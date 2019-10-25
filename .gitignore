@@ -150,7 +150,9 @@ develop-eggs
 
 # Custom python env stuff
 env/
+types/
 *test.py
+.idea/
 
 # Installer logs
 pip-log.txt
