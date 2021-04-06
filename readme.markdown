@@ -49,44 +49,45 @@ Usage Examples
 
 ```python 
 from pastebin import PastebinAPI
-my_key = PastebinAPI.generate_user_key(api_dev_key, username, password)
-print my_key
+pb = PastebinAPI()
+my_key = pb.generate_user_key(api_dev_key, username, password)
+print(my_key)
 ```
 
 
 Return an XML list of **User Details** of user specified by API key.
 
 ```python 
-details = PastebinAPI.user_details(api_dev_key, api_user_key)
-print details
+details = pb.user_details(api_dev_key, api_user_key)
+print(details)
 ```
 
 
 Return a list of **trending pastes**.  The result is in XML:
 
 ```python 
-trending_pastes = PastebinAPI.trending(api_dev_key)
-print trending_pastes
+trending_pastes = pb.trending(api_dev_key)
+print(trending_pastes)
 ```
 
 
 Return an XML list of all **pastes by user**.  Result limit defaults to none, so it will return all pastes:
 
 ```python 
-details = x.user_details(api_dev_key, api_user_key, results_limit = None)
+details = pb.user_details(api_dev_key, api_user_key, results_limit = None)
 ```
 
 
 **Delete a paste**:
 
 ```python 
-PastebinAPI.delete_paste(api_dev_key, api_user_key, api_paste_key)
+pb.delete_paste(api_dev_key, api_user_key, api_paste_key)
 ```
 
 **Paste** to Pastebin, where api_paste_code is the contents of your paste.  This will accept any valid Python data type:
 
 ```python 
-PastebinAPI.paste(api_dev_key, api_paste_code, api_user_key = None, 
+pb.paste(api_dev_key, api_paste_code, api_user_key = None, 
                    paste_name = None, paste_format = None, 
                    paste_private = None, paste_expire_date = None)
 ```

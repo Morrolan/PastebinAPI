@@ -383,7 +383,7 @@ class PastebinAPI(object):
             >>> paste_to_delete = pb.delete_paste('453a994e0e2f1efae07f8759e59e075b',
             ...                                 'c57a18e6c0ae228cd4bd16fe36da381a',
             ...                                 'WkgcTFtv')
-            >>> print paste_to_delete
+            >>> print(paste_to_delete)
             Paste Removed     
             
 
@@ -415,7 +415,7 @@ class PastebinAPI(object):
         payload['api_option'] = str('delete')
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
+        request_string = urllib.request.urlopen(self.api_url, urllib.parse.urlencode(payload))
         response = request_string.read()
 
         return response
@@ -429,7 +429,7 @@ class PastebinAPI(object):
             >>> pb = PastebinAPI()
             >>> details = pb.user_details('453a994e0e2f1efae07f8759e59e075b',
             ...                         'c57a18e6c0ae228cd4bd16fe36da381a')
-            >>> print details
+            >>> print(details)
             <user>
             <user_name>MonkeyPuzzle</user_name>
             <user_format_short>python</user_format_short>
@@ -465,7 +465,7 @@ class PastebinAPI(object):
         payload['api_option'] = str('userdetails')
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
+        request_string = urllib.request.urlopen(self.api_url, urllib.parse.urlencode(payload))
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any 
@@ -485,8 +485,8 @@ class PastebinAPI(object):
         Usage Example::
             >>> from pastebin import PastebinAPI
             >>> pb = PastebinAPI()
-            >>> details = pb.trending('453a994e0e2f1efae07f8759e59e075b')
-            >>> print details
+            >>> trending_pastes = pb.trending('453a994e0e2f1efae07f8759e59e075b')
+            >>> print(trending_pastes)
             <paste>
             <paste_key>jjMRFDH6</paste_key>
             <paste_date>1333230838</paste_date>
@@ -518,7 +518,7 @@ class PastebinAPI(object):
         payload['api_option'] = str('trends')
 
         # lets try to read the URL that we've just built.
-        request_string = urllib.urlopen(self.api_url, urllib.urlencode(payload))
+        request_string = urllib.request.urlopen(self.api_url, urllib.parse.urlencode(payload))
         response = request_string.read()
 
         # do some basic error checking here so we can gracefully handle any 
@@ -541,7 +541,7 @@ class PastebinAPI(object):
             >>> details = pb.user_details('453a994e0e2f1efae07f8759e59e075b',
             ...                         'c57a18e6c0ae228cd4bd16fe36da381a',
             ...                         100)
-            >>> print details
+            >>> print(details)
             <paste>
             <paste_key>DLiSspYT</paste_key>
             <paste_date>1332714730</paste_date>
@@ -619,11 +619,11 @@ class PastebinAPI(object):
           
         Usage Example::
             >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> my_key = x.generate_user_key('453a994e0e2f1efae07f8759e59e075b',
+            >>> pb = PastebinAPI()
+            >>> my_key = pb.generate_user_key('453a994e0e2f1efae07f8759e59e075b',
             ...                             'MonkeyPuzzle',
             ...                             '12345678')
-            >>> print my_key
+            >>> print(my_key)
             c57a18e6c0ae228cd4bd16fe36da381a
             
             
@@ -668,15 +668,15 @@ class PastebinAPI(object):
 
         Usage Example::
             >>> from pastebin import PastebinAPI
-            >>> x = PastebinAPI()
-            >>> url = x.paste('453a994e0e2f1efae07f8759e59e075b' ,
+            >>> pb = PastebinAPI()
+            >>> url = pb.paste('453a994e0e2f1efae07f8759e59e075b' ,
             ...               'Snippet of code to paste goes here',
             ...               paste_name = 'title of paste',
             ...               api_user_key = 'c57a18e6c0ae228cd4bd16fe36da381a',
             ...               paste_format = 'python',
             ...               paste_private = 'unlisted',
             ...               paste_expire_date = '10M')
-            >>> print url
+            >>> print(url)
             https://pastebin.com/tawPUgqY
 
 
