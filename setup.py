@@ -28,6 +28,7 @@
 from setuptools import setup
 
 long_desc = open('readme.rst').read()
+install_requires = open('requirements.txt').read().split('\n')
 
 setup(name='Pastebin',
       version='2.0',
@@ -57,6 +58,6 @@ setup(name='Pastebin',
           "Topic :: Internet",
           "Topic :: Software Development :: Libraries :: Python Modules",
       ],
-      install_requires=['setuptools'],
+      install_requires=install_requires,
 
       )
